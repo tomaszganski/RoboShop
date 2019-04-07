@@ -1,15 +1,53 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Robo</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Robo</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+
+<!-- BELKA -->
+<nav class="navbar navbar-inverse navbar-static-top"> <!-- navbar-inverse zmienia kolor belki -->
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="<%= root_path %>">Robo</a> <!-- Nazwa naszego sklepu -->
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Start</a></li>
+      <li><a href="#">Polityka prywatności</a></li>
+      <li><a href="#">Regulamin</a></li>
+      <li><a href="#">Dostawa i płatności</a></li>
+      <li><a href="#">O sklepie</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- SIDEBAR Z KATEGORIAMI -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+
+      <h3>Kategorie</h3>
+      <ul class="nav nav-sidebar">
+        <% (1..9).each do |category| %> <!-- generujemy 9 linków do kategorii -->
+          <li>
+            <%= link_to "Kategoria#{category}", category_path(category) %>
+          </li>
+        <% end %>
+      </ul>
+
+    </div>
+    <div class="col-md-10">
+      <%= yield %>
+    </div>
+  </div>
+</div>
+
+
+</body>
 </html>
