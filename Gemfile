@@ -71,3 +71,4 @@ gem 'ransack' #do generowania formularzy wyszukiwania
 gem 'kaminari' #do paginacji
 gem 'rails-i18n'
 gem 'statesman' #do tworzenia maszyny stanów
+gem 'font-awesome-rails'
